@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AyoBeliModelStoreContainer" CdmEntityContainer="UserEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AyoBeliModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="verified" ColumnName="verified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,69 @@
+﻿@model ayobeli_asp.Models.User
+
+@{
+				HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
+
+    Layout = "~/Views/Shared/Base.cshtml";
+				ViewBag.Title = "Register";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 ml-auto mr-auto">
+            <div class="panel panel-default pt-md-4 pt-lg-5">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Daftar akun baru sekarang</h3>
+                </div>
+                <div class="panel-body">
+																				@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+																				@using (Html.BeginForm("Register", "User", FormMethod.Post, null)){
+																								@Html.AntiForgeryToken()
+
+																								<div class="form-group">
+																												@Html.EditorFor(
+																																model => model.Name, 
+																																new { htmlAttributes = new { @class = "form-control", placeholder = "Nama anda" } }
+																												)
+																												@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+																								</div>
+																								<label class="radio-inline">
+																												@Html.RadioButtonFor(model => model.Sex, "L", true) @Html.Label("Laki-laki")
+																								</label>
+																								<label class="radio-inline ml-2">
+																												@Html.RadioButtonFor(model => model.Sex, "P", false) @Html.Label("Perempuan")
+																								</label>
+																								<div class="form-group">
+																												@Html.EditorFor(
+																																model => model.Email,
+																																new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } }
+																												)
+																												@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+																								</div>
+																								<div class="form-group">
+																												@Html.EditorFor(
+																																model => model.Password,
+																																new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } }
+																												)
+																												@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+																								</div>
+																								<div class="form-group">
+																												@Html.EditorFor(
+																																model => model.ConfirmPassword,
+																																new { htmlAttributes = new { @class = "form-control", placeholder = "Konfirmasi password" } }
+																												)
+																												@Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+																								</div>
+																								<p>
+																								Dengan klik daftar, kamu telah menyetujui Aturan Penggunaan dan Kebijakan Privasi dari AyoBeli
+																								</p>
+																								<input class="btn btn-lg btn-success btn-block" type="submit" value="Daftar">
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+				@Scripts.Render("~/bundles/jquery-validate")
+}

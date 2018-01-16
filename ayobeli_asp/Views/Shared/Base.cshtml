@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+				<meta name="viewport" content="width=device-width" />
+				<title>@ViewBag.Title - AyoBeli</title>
+				@Styles.Render("~/content/site")
+				@Scripts.Render("~/Scripts/modernizr-2.6.2.js")
+</head>
+<body>
+    @RenderBody()
+</body>
+
+@RenderSection("Scripts", required: false)
+</html>

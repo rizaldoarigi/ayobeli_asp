@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top" role="navigation">
+				@Html.ActionLink("AyoBeli", "Index", "Default", null, new { @class = "navbar-brand" })
+				<!-- toggle button -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible">
+								<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<ul class="navbar-nav d-none d-md-block">
+								<li class="nav-item dropdown">
+												<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+																Kategori
+												</a>
+												<div class="dropdown-menu">
+																<a class="dropdown-item" href="#">Link 1</a>
+																<a class="dropdown-item" href="#">Link 2</a>
+																<a class="dropdown-item" href="#">Link 3</a>
+												</div>
+								</li>
+				</ul>
+				<form class="mx-2 my-auto w-50 d-none d-md-block">
+								<div class="input-group">
+												<input type="text" class="form-control" placeholder="Cari barang">
+												<span class="input-group-btn">
+																<button class="btn btn-outline-secondary" type="button">Cari</button>
+												</span>
+								</div>
+				</form>
+				<div class="collapse navbar-collapse navbar-left" id="collapsible">
+								@if (User.Identity.IsAuthenticated)
+								{
+
+								}
+								else
+								{
+												<ul class="nav navbar-nav ml-auto">
+																<li class="nav-item">
+																				@Html.ActionLink("Daftar", "Register", "User", null, new { @class = "nav-link"})
+																</li>
+																<li class="nav-item dropdown">
+																				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login</a>
+																				<div class="dropdown-menu dropdown-menu-right" id="login-desktop">
+																								@using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+																								{
+																												@Html.AntiForgeryToken()
+																												<input id="sp_uname" class="form-control login" type="text" name="sp_uname" placeholder="Username.." />
+																												<input id="sp_pass" class="form-control login" type="password" name="sp_pass" placeholder="Password.." />
+																												<br />
+																												<input class="btn btn-primary btn-block" type="submit" name="submit" value="login" />
+																								}
+																				</div>
+																</li>
+												</ul>
+								}
+				</div>
+</nav>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top  d-md-none">
+				<form class="w-100">
+								<div class="input-group">
+												<input type="text" class="form-control" placeholder="Cari barang">
+												<span class="input-group-btn">
+																<button class="btn btn-outline-secondary" type="button">Cari</button>
+												</span>
+								</div>
+				</form>>
+</nav>
+<br>
